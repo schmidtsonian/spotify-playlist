@@ -1,0 +1,41 @@
+meta(charset='UTF-8')
+title=metas.title
+meta(name='description' content=metas.description)
+//- meta(name="robots" content="nofollow")
+
+meta(http-equiv='X-UA-Compatible', content='IE=edge')
+meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0')
+meta(name='msapplication-tap-highlight', content='no')
+
+//- Twitter Card data
+meta(name='twitter:card', content='summary')
+meta(name='twitter:site', content=metas.twitter_id)
+meta(name='twitter:title', content=metas.twitter_title)
+meta(name='twitter:description', content=metas.twitter_description)
+meta(name='twitter:image', content=metas.twitter_image) 
+
+//- Open Graph data
+meta(property='og:title', content=metas.title)
+meta(property='og:type', content='website')
+meta(property='og:url', content=metas.url)
+meta(property='og:image', content=metas.facebook_image)
+meta(property='og:description', content=metas.description)
+meta(property='og:site_name', content=metas.title)
+meta(property='fb:app_id', content=metas.facebook_app_id)
+
+link(rel='apple-touch-icon', sizes='57x57', href=PATH+'/images/favicon/'+metas.icon_57)
+link(rel='apple-touch-icon', sizes='76x76', href=PATH+'/images/favicon/'+metas.icon_56)
+link(rel='apple-touch-icon', sizes='114x114', href=PATH+'/images/favicon/'+metas.icon_114)
+link(rel='apple-touch-icon', sizes='120x120', href=PATH+'/images/favicon/'+metas.icon_120)
+link(rel='apple-touch-icon', sizes='144x144', href=PATH+'/images/favicon/'+metas.icon_144)
+link(rel='apple-touch-icon', sizes='152x152', href=PATH+'/images/favicon/'+metas.icon_152)
+link(rel='apple-touch-icon', sizes='180x180', href=PATH+'/images/favicon/'+metas.icon_180)
+link(rel='icon', type="image/png", sizes='196x196', href=PATH+'/images/favicon/'+metas.icon_196)
+
+meta(name='application-name', content=metas.application_name)
+meta(name='msapplication-TileImage', content=metas.icon_114)
+meta(name='msapplication-TileColor', content=metas.ms_application_tile_color)
+meta(name="theme-color" content=metas.theme_color)
+
+link(href='//fonts.googleapis.com/css?family=Josefin+Sans:400,700|Josefin+Slab:700' rel='stylesheet')
+link(rel='stylesheet', type='text/css', href=PATH+'/css/main.css')

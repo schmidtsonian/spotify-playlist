@@ -1,0 +1,14 @@
+@import
+    'base/reset';
+
+@import
+    'utils/variables',
+    'utils/mixins',
+    'utils/boostrap';
+
+@import
+    'base/typography';
+
+body {
+	font-family: $FONT_BODY;
+}

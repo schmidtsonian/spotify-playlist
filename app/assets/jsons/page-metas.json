@@ -1,0 +1,30 @@
+{
+
+    "metas": {
+        "title": "",
+        "description": "",
+        "url":"#",
+
+        "twitter_id": "@",
+        "twitter_title": "",
+        "twitter_description": "",
+        "twitter_image": "",
+
+        "facebook_image": "",
+        "facebook_app_id": "",
+
+        "icon_57": "favicon-57.png",
+        "icon_56": "favicon-56.png",
+        "icon_56": "favicon-56.png",
+        "icon_114": "favicon-114.png",
+        "icon_120": "favicon-120.png",
+        "icon_144": "favicon-144.png",
+        "icon_152": "favicon-152.png",
+        "icon_180": "favicon-180.png",
+        "icon_196": "favicon-196.png",
+
+        "application_name": "",
+        "ms_application_tile_color": "#ffffff",
+        "theme_color": "#020912"
+    }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "spotify-playlist",
+  "version": "1.0.0",
+  "description": "Test Login Spotify",
+  "author": "Esteban Ramirez Schmidt",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/schmidtsonian/spotify-playlist.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cache": "^0.4.5",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-data": "^1.2.1",
+    "gulp-debug": "^3.1.0",
+    "gulp-filter": "^5.0.0",
+    "gulp-function": "^2.2.3",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-json-minify": "^1.0.7",
+    "gulp-main-bower-files": "^1.6.1",
+    "gulp-merge-json": "^1.0.0",
+    "gulp-open": "^2.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-pug": "^3.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-serve": "^1.4.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-typedoc": "^2.0.2",
+    "gulp-typescript": "^3.1.5",
+    "gulp-uglify": "^2.0.1",
+    "gulp-util": "^3.0.8",
+    "lazypipe": "^1.0.1",
+    "merge2": "^1.0.3",
+    "q": "^1.4.1",
+    "run-sequence": "^1.2.2",
+    "typedoc": "^0.5.7",
+    "typescript": "^2.1.6"
+  }
+}

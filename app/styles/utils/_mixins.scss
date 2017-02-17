@@ -1,0 +1,132 @@
+@mixin xs-devices-only {
+    @media (max-width: #{$SM_MIN_WIDTH - 1}) {
+        @content;
+    }
+}
+
+@mixin xs-devices {
+    @media (min-width: #{$XS_MAX_WIDTH}) {
+        @content;
+    }
+}
+
+@mixin sm-devices {
+    @media (min-width: #{$SM_MIN_WIDTH}) {
+        @content;
+    }
+}
+
+@mixin sm-devices-only {
+    @media (min-width: #{$SM_MIN_WIDTH}) and (max-width: #{$MD_MIN_WIDTH - 1}) {
+        @content;
+    }
+}
+
+@mixin md-devices {
+    @media (min-width: #{$MD_MIN_WIDTH}) {
+        @content;
+    }
+}
+
+@mixin md-devices-safe {
+    @media (min-width: #{$MD_MIN_WIDTH}) and (min-height: #{$MD_MIN_HEIGHT}) {
+        @content;
+    }
+}
+
+@mixin lg-devices {
+    @media (min-width: #{$LG_MIN_WIDTH}) {
+        @content;
+    }
+}
+
+@mixin absolute-center {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    margin: auto;
+}
+
+@mixin bottom-center {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    margin: auto;
+}
+
+@mixin right-center {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    margin: auto;
+}
+
+@mixin left-center {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    margin: auto;
+}
+
+@mixin state-page-loaded {
+    body.s-page--loaded {
+        @content;
+    }
+}
+
+@mixin state-menu-open {
+    html.s-menu--open {
+        @content;
+    }
+}
+
+@mixin state-footer-res-visible {
+    body.v-footer-res {
+        @content;
+    }
+}
+
+@mixin state-footer-res-visible {
+    body.v-footer-res {
+        @content;
+    }
+}
+
+@mixin state-section-eat-visible {
+    body.v-section-eat {
+        @content;
+    }
+}
+
+@mixin state-section-stay-visible {
+    body.v-section-stay {
+        @content;
+    }
+}
+
+@mixin state-section-play-visible {
+    body.v-section-play {
+        @content;
+    }
+}
+
+@mixin state-results-more-visible {
+    body.v-results-more {
+        @content;
+    }
+}
+
+@mixin state-results-nav-xs-sticky {
+    body.v-results-nav-xs-sticky {
+        @content;
+    }
+}
