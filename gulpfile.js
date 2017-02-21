@@ -1,32 +1,32 @@
-var autoprefixer = require('gulp-autoprefixer');
-var cache           = require('gulp-cache');
-var concat          = require('gulp-concat');
-var connect         = require('gulp-connect');
-var data            = require('gulp-data');
-var debug           = require('gulp-debug');
-var del             = require('del');
-var fs              = require('fs');
-var gulp            = require('gulp');
-var gulpFilter      = require('gulp-filter');
-var gutil           = require('gulp-util');
-var imagemin        = require('gulp-imagemin');
-var pug             = require('gulp-pug');
-var jsonminify      = require('gulp-json-minify');
-var lazypipe        = require('lazypipe');
-var mainBowerFiles  = require('gulp-main-bower-files');
-var merge           = require('merge2');
-var mergeJsons      = require('gulp-merge-json');
-var open            = require('gulp-open');
-var plumber         = require('gulp-plumber');
-var rename          = require('gulp-rename');
-var runSequence     = require('run-sequence');
-var sass            = require('gulp-sass');
-var sourcemaps      = require('gulp-sourcemaps');
-var ts              = require('gulp-typescript');
-var typedoc         = require("gulp-typedoc");
-var uglify          = require('gulp-uglify');
+const autoprefixer    = require('gulp-autoprefixer');
+const cache           = require('gulp-cache');
+const concat          = require('gulp-concat');
+const connect         = require('gulp-connect');
+const data            = require('gulp-data');
+const debug           = require('gulp-debug');
+const del             = require('del');
+const fs              = require('fs');
+const gulp            = require('gulp');
+const gulpFilter      = require('gulp-filter');
+const gutil           = require('gulp-util');
+const imagemin        = require('gulp-imagemin');
+const pug             = require('gulp-pug');
+const jsonminify      = require('gulp-json-minify');
+const lazypipe        = require('lazypipe');
+const mainBowerFiles  = require('gulp-main-bower-files');
+const merge           = require('merge2');
+const mergeJsons      = require('gulp-merge-json');
+const open            = require('gulp-open');
+const plumber         = require('gulp-plumber');
+const rename          = require('gulp-rename');
+const runSequence     = require('run-sequence');
+const sass            = require('gulp-sass');
+const sourcemaps      = require('gulp-sourcemaps');
+const ts              = require('gulp-typescript');
+const typedoc         = require("gulp-typedoc");
+const uglify          = require('gulp-uglify');
 
-var path = {
+const path = {
     styles  : {
         src  : 'app/styles/**/*.scss',
         dest : 'public/css/',
@@ -60,7 +60,7 @@ var path = {
     },
 };
 
-gulp.task('webserver', function() {
+gulp.task( 'webserver', () => {
     connect.server({
         root: 'public',
         livereload: true,
@@ -68,18 +68,18 @@ gulp.task('webserver', function() {
     });
 });
 
-gulp.task('uri', function() {
+gulp.task( 'uri', () => {
     gulp
     .src(__filename)
-    .pipe(open({uri: 'http://localhost:8080'}));
+    .pipe( open({uri: 'http://localhost:8080'}));
 });
 
-gulp.task('clean:public', function() {
+gulp.task( 'clean:public', () => {
     
     return del.sync('public');
 });
 
-gulp.task('fonts', function() {
+gulp.task( 'fonts', () => {
     
     return gulp
         .src(path.fonts.src)
@@ -87,7 +87,7 @@ gulp.task('fonts', function() {
         .pipe(connect.reload());
 });
 
-gulp.task('jsons', function() {
+gulp.task('jsons', () => {
     
     return gulp
         .src(path.jsons.src)
@@ -98,15 +98,15 @@ gulp.task('jsons', function() {
         .pipe(connect.reload());
 });
 
-gulp.task('imagemin', function() {
+gulp.task('imagemin', () => {
     return gulp
         .src(path.images.src)
         .pipe(imagemin())
         .pipe(gulp.dest(path.images.dest))
         .pipe(connect.reload());
-} );
+});
 
-gulp.task('images', function() {
+gulp.task('images', () => {
   return gulp
       .src(path.images.src)
       // Caching images that ran through imagemin
@@ -114,7 +114,7 @@ gulp.task('images', function() {
       .pipe(gulp.dest(path.images.dest))
 });
 
-gulp.task('vendor-scripts', function() {
+gulp.task('vendor-scripts', () => {
 
     var vendorJs = gulp
         .src(path.scripts.vendorSrc)
@@ -131,14 +131,14 @@ gulp.task('vendor-scripts', function() {
         .pipe(gulp.dest(path.scripts.dest));
 });
 
-gulp.task('scripts', function () {
+gulp.task('scripts', () => {
     return gulp
         .src(path.scripts.src)
         .pipe(sourcemaps.init())
         .pipe(ts({
                 target: "ES5",
-            	noImplicitAny: true,
-            	out: path.scripts.out
+            	out: path.scripts.out,
+                module: 'amd'
     	    }
         ))
         .pipe(uglify())
@@ -147,9 +147,11 @@ gulp.task('scripts', function () {
         .pipe(connect.reload());
 });
 
-gulp.task('typedoc', function() {
+gulp.task('typedoc', () => {
+
     return gulp
         .src('app/typescripts/**/*.ts')
+        .pipe(tsConfig())
         .pipe(typedoc({
             module: "commonjs",
             target: "es5",
@@ -159,7 +161,7 @@ gulp.task('typedoc', function() {
         }));
 });
 
-gulp.task('styles', function () {
+gulp.task('styles', () => {
     return gulp
         .src(path.styles.src)
         .pipe(sourcemaps.init())
@@ -170,13 +172,13 @@ gulp.task('styles', function () {
         .pipe(sass({ 
             outputStyle: 'compressed'
         }))
-        .on("error", sass.logError)
+        .on( 'error', sass.logError )
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(path.styles.dest))
         .pipe(connect.reload());
 });
 
-gulp.task( 'viewsData', function() {
+gulp.task( 'viewsData', () => {
 
     return gulp
         .src(path.jsons.src)
@@ -185,12 +187,12 @@ gulp.task( 'viewsData', function() {
         .pipe(connect.reload());
 });
 
-gulp.task( 'views', function() {
+gulp.task( 'views', () => {
 
     return gulp
         .src( path.views.src )
         .pipe(plumber())
-        .pipe( data( function(file) {
+        .pipe( data( (file) => {
             return JSON.parse(
                 fs.readFileSync('public/jsons/combined.json')
             );
@@ -201,15 +203,15 @@ gulp.task( 'views', function() {
         .pipe( connect.reload() );
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', () => {
 
-    gulp.watch(path.jsons.src, function() {
+    gulp.watch(path.jsons.src, () => {
         runSequence('viewsData', 'views');
     });
     gulp.watch(path.views.src, ['views']);
     gulp.watch(path.styles.src, ['styles']);
     gulp.watch(path.scripts.src, ['scripts']);
-    gulp.watch(path.scripts.src, ['typedoc']);
+    //gulp.watch(path.scripts.src, ['typedoc']);
     gulp.watch(path.images.src, ['imagemin']);
     gulp.watch(path.images.src, ['images']);
     //gulp.watch(path.images.src, ['jsons']);
@@ -218,7 +220,7 @@ gulp.task('watch', function () {
 
 //TODO:
 //https://github.com/addyosmani/critical-path-css-demo
-gulp.task('default', function(callback) {
+gulp.task('default', (callback) => {
   runSequence(
     'clean:public', 'viewsData', [
         'vendor-scripts', 
@@ -226,11 +228,10 @@ gulp.task('default', function(callback) {
         'styles', 
         'imagemin', 
         'images',
-        //'jsons',
         'fonts',
         'views'
     ], 
-    'typedoc',
+    //'typedoc',
     'webserver',
     'uri', 
     'watch',

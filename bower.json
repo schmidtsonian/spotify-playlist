@@ -7,13 +7,20 @@
     "gsap": "1.12.1",
     "handlebars": "~4.0.5",
     "hammerjs": "^2.0.8",
-    "jquery-hammerjs": "^2.0.0"
+    "jquery-hammerjs": "^2.0.0",
+    "jso": "^2.0.3",
+    "spotify-web-api-js": "^0.21.2"
   },
   "overrides": {
     "gsap": {
       "main": [
         "./src/uncompressed/TweenMax.js",
         "./src/uncompressed/plugins/ScrollToPlugin.js"
+      ]
+    },
+    "jso": {
+      "main": [
+        "./build/jso.js"
       ]
     }
   }
