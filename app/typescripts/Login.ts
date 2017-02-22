@@ -21,8 +21,8 @@ class Login {
 
         this.jso = new JSO({
             providerID: "spotify",
-            client_id: "daf6432fc84f43b588ab20c29c854aef",
-            redirect_uri: "http://localhost:8080",
+            client_id: this.CLIENT_ID,
+            redirect_uri: this.REDIRECT_URI,
             authorization: "https://accounts.spotify.com/authorize?",
             scopes: { request: ["user-read-email"]},
         });
@@ -48,7 +48,10 @@ class Login {
                 .then( () => {
                     let src = this.arrTracksByPlaylist[0].tracks[0].preview_url;
                     let audio = new Audio(src);
-                    audio.play();
+                    
+                    $('#play').on('click touched', () => {
+                        audio.play();
+                    })
                 })
         }
     }

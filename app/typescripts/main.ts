@@ -10,7 +10,7 @@ class Main {
     constructor() {
         
         this.CLIENT_ID = 'daf6432fc84f43b588ab20c29c854aef';
-        this.REDIRECT_URI = 'http://localhost:8080/callback';
+        this.REDIRECT_URI = 'http://192.168.1.190:8080';
         this.login = new Login(this.CLIENT_ID, this.REDIRECT_URI);
 
         this.init();
